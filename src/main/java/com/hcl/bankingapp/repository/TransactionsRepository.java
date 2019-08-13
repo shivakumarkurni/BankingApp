@@ -10,9 +10,11 @@ import com.hcl.bankingapp.entity.Transactions;
 
 public interface TransactionsRepository extends JpaRepository<Transactions, Long> {
 	
+
 	@Query(value="select * FROM transactions u where u.from_account=:fromAccount order by u.date DESC",nativeQuery=true )
 	 List<Transactions> getTransactionsByFromAccount(@Param ("fromAccount")Long fromAccount);
 	
+
 	
 
 }

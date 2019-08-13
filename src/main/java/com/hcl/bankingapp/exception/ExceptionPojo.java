@@ -1,4 +1,4 @@
-package com.hcl.bankingapp.global;
+package com.hcl.bankingapp.exception;
 
 public class ExceptionPojo {
 
