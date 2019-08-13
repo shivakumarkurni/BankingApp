@@ -66,7 +66,7 @@ public class UserLoginServiceImplTest {
 		transaction.setTransactionId(1L);
 		transaction.setFromAccount(123L);
 		transaction.setToAccount(456L);
-		transaction.setDate(LocalDate.now());
+		transaction.setDate(LocalDate.now()); 
 
 		transactions.add(transaction);
 		Transactions transaction1 = new Transactions();

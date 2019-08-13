@@ -111,8 +111,8 @@ public class RegistrationServiceMockitoTest {
 		Assert.assertEquals(actualvalue, 1000001L);
 		
 	}
-	  
+	   
 	
-	
+	 
 
 }
