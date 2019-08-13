@@ -19,7 +19,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 @Autowired
 UserDetailsRepository userDetailsRepository;
 
-@Autowired
+@Autowired 
 AccountRepository accountRepository;
 
 public List<PayeeDTO> getAllPayeeDetails(Long userId){

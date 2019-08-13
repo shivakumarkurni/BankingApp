@@ -80,7 +80,8 @@ public class UserLoginServiceImplTest {
 		List<Account> accountList=new ArrayList<>();
 		accountList.add(account);
 		
-		
+		List<UserDetails> UserDetailsList=new ArrayList<>();
+		UserDetailsList.add(user);
  
 		Mockito.when(userDetailsRepository.findByUserName(user.getUserName())).thenReturn(user);
 

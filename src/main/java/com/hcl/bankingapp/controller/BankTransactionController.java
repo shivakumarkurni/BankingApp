@@ -37,7 +37,7 @@ public class BankTransactionController {
 	
 	@PostMapping("/transaction")
 	public ResponseEntity<ErrorResponse> transaction(@RequestBody TransactionInputDto transactionInputDto) {
-
+ 
 		return bankTransactionService.transaction(transactionInputDto.getFromaccount(),
 				transactionInputDto.getToaccount(), transactionInputDto.getAmount());
 
@@ -55,7 +55,7 @@ public class BankTransactionController {
 	@PostMapping("/save")
 	public UserResponseDTO saveCustomer(@RequestBody UserDetails details){
 		 long accno = registerservice.registerCustomer(details);
-		 
+		  
 		 UserResponseDTO response = new UserResponseDTO();
 		 response.setAccno(accno);
 		 response.setMessage("success");
