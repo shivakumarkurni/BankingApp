@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.hcl.bankingapp.service.NoTransactions;
+
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -38,6 +40,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(EnterValidCredentials.class)
 	public ResponseEntity<ExceptionPojo> globalExceptionHandler(EnterValidCredentials ex, WebRequest request) {
+
+		ExceptionPojo user = new ExceptionPojo(ex.getMessage());
+
+		return new ResponseEntity<ExceptionPojo>(user, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(NoTransactions.class)
+	public ResponseEntity<ExceptionPojo> globalExceptionHandler(NoTransactions ex, WebRequest request) {
 
 		ExceptionPojo user = new ExceptionPojo(ex.getMessage());
 

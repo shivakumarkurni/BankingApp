@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hcl.bankingapp.dto.LoginDto;
+import com.hcl.bankingapp.dto.ResponseDto;
 import com.hcl.bankingapp.entity.Account;
 import com.hcl.bankingapp.entity.Transactions;
 import com.hcl.bankingapp.entity.UserDetails;
@@ -29,7 +30,7 @@ public class UserLoginServiceImpl implements UserLoginService {
 	AccountRepository accountRepository;
 
 	@Override
-	public List<Transactions> userLogin(LoginDto loginDto) {
+	public ResponseDto userLogin(LoginDto loginDto) {
 
 		List<Transactions> transactions = null;
 		List<Account> accountlist = null;
@@ -48,16 +49,14 @@ public class UserLoginServiceImpl implements UserLoginService {
 				userId = userDetails.getUserId();
 
 				accountlist = accountRepository.findByUserDetails(userDetails);
+				ResponseDto responseDto=new ResponseDto();
+				account=accountlist.get(0);
+				responseDto.setAccNo(account.getAccountNo());
+				responseDto.setMessage("user Login Succesfully");
+				responseDto.setUserName(userName);
 				
-				if(accountlist.isEmpty())
-					throw new  UserNotFound("accounts are not existed");
-					
-					account=accountlist.get(0);
+				return responseDto;
 				
-				
-				transactions = transactionsRepository.getTransactionsByFromAccount(account.getAccountNo());
-
-				return transactions;
 			}
 
 			else {

@@ -1,15 +1,13 @@
 package com.hcl.bankingapp.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.hcl.bankingapp.dto.LoginDto;
-import com.hcl.bankingapp.entity.Transactions;
+import com.hcl.bankingapp.dto.ResponseDto;
 
 @Service
 public interface UserLoginService {
 	
-	public List<Transactions> userLogin(LoginDto loginDto);
+	public ResponseDto userLogin(LoginDto loginDto);
 
 }

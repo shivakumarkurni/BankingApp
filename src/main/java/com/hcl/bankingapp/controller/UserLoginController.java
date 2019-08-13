@@ -1,7 +1,5 @@
 package com.hcl.bankingapp.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.bankingapp.dto.LoginDto;
-import com.hcl.bankingapp.entity.Transactions;
+import com.hcl.bankingapp.dto.ResponseDto;
 import com.hcl.bankingapp.service.UserLoginService;
 
 @CrossOrigin(allowedHeaders= {"*","*/"},origins= {"*","*/"})
@@ -22,9 +20,9 @@ public class UserLoginController {
 	UserLoginService userLoginService;
 
 	@PostMapping("/user/login/")
-	public ResponseEntity<List<Transactions>> userLogin(@RequestBody LoginDto loginDto) {
+	public ResponseEntity<ResponseDto> userLogin(@RequestBody LoginDto loginDto) {
 
-		return new ResponseEntity<List<Transactions>>(userLoginService.userLogin(loginDto), HttpStatus.OK);
+		return new ResponseEntity<ResponseDto>(userLoginService.userLogin(loginDto), HttpStatus.OK);
 	}
 
 }
