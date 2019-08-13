@@ -4,12 +4,11 @@ import java.io.Serializable;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
-public class TransactionInputDto  implements Serializable{
+public class TransactionInputDto {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	
 	public Long fromaccount ;
 	public  Long toaccount;
