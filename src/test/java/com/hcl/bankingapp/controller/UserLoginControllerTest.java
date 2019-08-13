@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hcl.bankingapp.dto.LoginDto;
-import com.hcl.bankingapp.serviceImpl.UserLoginServiceImpl;
+import com.hcl.bankingapp.service.UserLoginServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserLoginControllerTest {

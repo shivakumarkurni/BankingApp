@@ -88,7 +88,7 @@ public class RegistrationServiceMockitoTest {
 	public void registerCustomerTest() {
 		
 		Mockito.when(userdetailsrepository.findByUserName(detail.getUserName())).thenReturn(detail);
-		Mockito.when(userdetailsrepository.save(detail)).thenReturn(detail);
+//		Mockito.when(userdetailsrepository.save(detail)).thenReturn(detail);
 		  
 		
 		long actualvalue = registrationService.registerCustomer(detail);

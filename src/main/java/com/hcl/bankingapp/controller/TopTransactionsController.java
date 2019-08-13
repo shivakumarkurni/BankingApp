@@ -18,12 +18,12 @@ import com.hcl.bankingapp.service.TopTransactionsService;
 public class TopTransactionsController {
 	
 	@Autowired
-	TopTransactionsService TopTransactionsService;
+	TopTransactionsService topTransactionsService;
 	
 	@GetMapping("/transactions/{accNumber}")
 	public ResponseEntity<List<Transactions>> topTransactions(@PathVariable Long accNumber){
 		
-		return new ResponseEntity<List<Transactions>>(TopTransactionsService.topTransactions(accNumber),HttpStatus.OK);
+		return new ResponseEntity<>(topTransactionsService.topTransactions(accNumber),HttpStatus.OK);
 		
 	}
 	

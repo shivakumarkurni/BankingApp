@@ -8,7 +8,7 @@ public class UserResponseDTO implements Serializable {
 
 	private String message;
 
-	public Long getAccno() {
+	public Long getAccno() { 
 		return accno;
 	}
 

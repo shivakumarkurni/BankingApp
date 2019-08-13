@@ -1,4 +1,4 @@
-package com.hcl.bankingapp.service;
+package com.hcl.bankingapp.exception;
 
 public class NoTransactions extends RuntimeException {
 	

@@ -2,9 +2,11 @@ package com.hcl.bankingapp.service;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hcl.bankingapp.dto.UserDetailsDTO;
 import com.hcl.bankingapp.entity.Account;
 import com.hcl.bankingapp.entity.UserDetails;
 import com.hcl.bankingapp.exception.BankException;
@@ -23,8 +25,12 @@ public class RegistrationService {
 	static long accno = 1000000;
 	final Double balance = 20000.00;
  
-	public long registerCustomer(UserDetails details) {
+	public long registerCustomer(UserDetailsDTO userDetailsDTO) {
 
+		UserDetails details=new UserDetails();
+		
+		BeanUtils.copyProperties(userDetailsDTO, details);
+		
 		UserDetails users = userdetailsrepository.findByUserName(details.getUserName());
 		if (users != null)
 			throw new BankException(details.getUserName() + " already existed");

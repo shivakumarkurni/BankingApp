@@ -1,18 +1,16 @@
 package com.hcl.bankingapp.dto;
 
-import java.io.Serializable;
-
-import org.springframework.web.bind.annotation.RequestParam;
-
 public class TransactionInputDto {
 
 	/**
 	 * 
 	 */
 	
-	public Long fromaccount ;
-	public  Long toaccount;
-	public Double amount;
+	private Long fromaccount ;
+	private  Long toaccount;
+	private Double amount;
+	
+	
 	public Long getFromaccount() {
 		return fromaccount;
 	}

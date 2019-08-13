@@ -26,12 +26,10 @@ public List<PayeeDTO> getAllPayeeDetails(Long userId){
 	List<PayeeDTO> listPayeeDTOs = new ArrayList<PayeeDTO>();
 	List<UserDetails> listUserDetails = userDetailsRepository.findAll();
 	for (UserDetails userDetails : listUserDetails) {
-			if(userDetails.getUserId()!=userId) {
+			if(!userDetails.getUserId().equals(userId)) {
 			List<Account> accountList = accountRepository.findByUserDetails(userDetails);
 			PayeeDTO payeeDTO = new PayeeDTO();
 			payeeDTO.setAccountNo(accountList.get(0).getAccountNo());
-			payeeDTO.setUserId(userDetails.getUserId());
-			payeeDTO.setUserName(userDetails.getUserName());
 			listPayeeDTOs.add(payeeDTO);
 		}
 	}

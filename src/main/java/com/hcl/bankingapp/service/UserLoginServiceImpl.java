@@ -1,24 +1,26 @@
-package com.hcl.bankingapp.serviceImpl;
+package com.hcl.bankingapp.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hcl.bankingapp.dto.LoginDto;
 import com.hcl.bankingapp.dto.ResponseDto;
 import com.hcl.bankingapp.entity.Account;
-import com.hcl.bankingapp.entity.Transactions;
 import com.hcl.bankingapp.entity.UserDetails;
 import com.hcl.bankingapp.exception.EnterValidCredentials;
 import com.hcl.bankingapp.exception.UserNotFound;
 import com.hcl.bankingapp.repository.AccountRepository;
 import com.hcl.bankingapp.repository.TransactionsRepository;
 import com.hcl.bankingapp.repository.UserDetailsRepository;
-import com.hcl.bankingapp.service.UserLoginService;
 
 @Service
 public class UserLoginServiceImpl implements UserLoginService {
+	
+	private final Logger logger = LoggerFactory.getLogger(UserLoginServiceImpl.class);
 
 	@Autowired
 	UserDetailsRepository userDetailsRepository;
@@ -31,8 +33,10 @@ public class UserLoginServiceImpl implements UserLoginService {
 
 	@Override
 	public ResponseDto userLogin(LoginDto loginDto) {
+		
+		logger.info("LoginData:"+loginDto.getUserName()+"Password:"+loginDto.getPassword());
 
-		List<Transactions> transactions = null;
+		
 		List<Account> accountlist = null;
 		Account account = null;
 		Long userId = 0L;

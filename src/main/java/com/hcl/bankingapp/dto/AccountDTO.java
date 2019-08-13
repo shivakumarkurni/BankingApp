@@ -2,10 +2,6 @@ package com.hcl.bankingapp.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
 import com.hcl.bankingapp.entity.UserDetails;
 
 public class AccountDTO implements Serializable {

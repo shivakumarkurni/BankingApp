@@ -9,7 +9,7 @@ public class TransactionsDTO {
 	private Long toAccount;
 	private Double amount;
 	private LocalDate date;
-
+ 
 	public Long getTransactionId() {
 		return transactionId;
 	}

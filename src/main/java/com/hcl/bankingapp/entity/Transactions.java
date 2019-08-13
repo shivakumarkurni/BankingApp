@@ -17,6 +17,8 @@ public class Transactions {
 	private Long toAccount;
 	private  Double amount;
 	private LocalDate date;
+	private String transactionType;
+	private String description;
 	
 	
 	
@@ -49,6 +51,18 @@ public class Transactions {
 	}
 	public void setDate(LocalDate date) {
 		this.date = date;
+	}
+	public String getTransactionType() {
+		return transactionType;
+	}
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

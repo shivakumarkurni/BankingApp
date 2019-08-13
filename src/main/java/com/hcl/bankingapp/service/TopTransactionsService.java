@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hcl.bankingapp.entity.Transactions;
+import com.hcl.bankingapp.exception.NoTransactions;
 import com.hcl.bankingapp.repository.TopTransactionsRepository;
 import com.hcl.bankingapp.repository.TransactionsRepository;
 

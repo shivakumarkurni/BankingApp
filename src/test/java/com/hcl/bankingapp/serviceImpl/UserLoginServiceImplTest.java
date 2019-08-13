@@ -15,6 +15,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.hcl.bankingapp.dto.LoginDto;
+import com.hcl.bankingapp.dto.ResponseDto;
 import com.hcl.bankingapp.entity.Account;
 import com.hcl.bankingapp.entity.Transactions;
 import com.hcl.bankingapp.entity.UserDetails;
@@ -23,6 +24,7 @@ import com.hcl.bankingapp.exception.UserNotFound;
 import com.hcl.bankingapp.repository.AccountRepository;
 import com.hcl.bankingapp.repository.TransactionsRepository;
 import com.hcl.bankingapp.repository.UserDetailsRepository;
+import com.hcl.bankingapp.service.UserLoginServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserLoginServiceImplTest {
@@ -49,6 +51,7 @@ public class UserLoginServiceImplTest {
 		LoginDto loginDto = new LoginDto();
 		loginDto.setUserName("raja");
 		loginDto.setPassword("raja@123");
+		
 		UserDetails user = new UserDetails();
 		user.setUserId(1L);
 		user.setUserName("raja");
@@ -87,11 +90,17 @@ public class UserLoginServiceImplTest {
 
 		Mockito.when(accountRepository.findByUserDetails(user)).thenReturn(accountList);
 
-		Mockito.when(transactionsRepository.getTransactionsByFromAccount(account.getAccountNo()))
-				.thenReturn(transactions);
+//		Mockito.when(transactionsRepository.getTransactionsByFromAccount(account.getAccountNo()))
+//				.thenReturn(transactions);
+		
+		ResponseDto responseDto=new ResponseDto();
+		responseDto.setAccNo(1234L);
+		responseDto.setUserName(user.getUserName());
+		responseDto.setMessage("User registration done successfully");
+		 
 
-		List actualValue = userLoginService.userLogin(loginDto);
-		assertEquals(2, actualValue.size());
+		ResponseDto actualValue = userLoginService.userLogin(loginDto);
+		assertEquals(responseDto.getAccNo(),actualValue.getAccNo());
 	}
 
 	@Test(expected = EnterValidCredentials.class)
@@ -129,8 +138,13 @@ public class UserLoginServiceImplTest {
 
 		Mockito.when(userDetailsRepository.findByUserName("raja")).thenReturn(user);
 
+
+		ResponseDto responseDto=new ResponseDto();
+		responseDto.setAccNo(123L);
+		responseDto.setUserName(user.getUserName());
+		responseDto.setMessage("User registration done successfully");
 		
-		List actualValue = userLoginService.userLogin(loginDto);
+		ResponseDto actualValue = userLoginService.userLogin(loginDto);
 	}
 
 	@Test(expected = UserNotFound.class)
@@ -165,10 +179,17 @@ public class UserLoginServiceImplTest {
 		transaction1.setToAccount(456L);
 		transaction1.setDate(LocalDate.now());
 		transactions.add(transaction1);
+		
+
+		ResponseDto responseDto=new ResponseDto();
+		responseDto.setAccNo(123L);
+		responseDto.setUserName(user.getUserName());
+		responseDto.setMessage("User registration done successfully");
+		
 
 		// Mockito.when(userDetailsRepository.findByUserName("Arjun")).thenReturn(user);
 
-		List actualValue = userLoginService.userLogin(loginDto);
+		ResponseDto actualValue = userLoginService.userLogin(loginDto);
 
 	}
 
