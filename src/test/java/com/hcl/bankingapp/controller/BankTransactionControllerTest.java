@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hcl.bankingapp.dto.LoginDto;
 import com.hcl.bankingapp.service.BankTransactionServiceImpl;
 import com.hcl.bankingapp.service.UserDetailsServiceImpl;
-import com.hcl.bankingapp.serviceImpl.UserLoginServiceImpl;
+import com.hcl.bankingapp.service.UserLoginServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BankTransactionControllerTest {

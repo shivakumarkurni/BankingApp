@@ -23,6 +23,7 @@ import com.hcl.bankingapp.exception.UserNotFound;
 import com.hcl.bankingapp.repository.AccountRepository;
 import com.hcl.bankingapp.repository.TransactionsRepository;
 import com.hcl.bankingapp.repository.UserDetailsRepository;
+import com.hcl.bankingapp.service.UserLoginServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserLoginServiceImplTest {
