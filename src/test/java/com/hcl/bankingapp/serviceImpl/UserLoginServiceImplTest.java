@@ -66,7 +66,7 @@ public class UserLoginServiceImplTest {
 		transaction.setTransactionId(1L);
 		transaction.setFromAccount(123L);
 		transaction.setToAccount(456L);
-		transaction.setDate(LocalDate.now());
+		transaction.setDate(LocalDate.now()); 
 
 		transactions.add(transaction);
 		Transactions transaction1 = new Transactions();
@@ -80,7 +80,8 @@ public class UserLoginServiceImplTest {
 		List<Account> accountList=new ArrayList<>();
 		accountList.add(account);
 		
-		
+		List<UserDetails> UserDetailsList=new ArrayList<>();
+		UserDetailsList.add(user);
  
 		Mockito.when(userDetailsRepository.findByUserName(user.getUserName())).thenReturn(user);
 

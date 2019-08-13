@@ -17,7 +17,7 @@ import com.hcl.bankingapp.repository.TransactionsRepository;
 @Service
 public class BankTransactionServiceImpl implements BankTransactionService {
 
-	@Autowired
+	@Autowired 
 	TransactionsRepository transactionsRepository;
 	
 	
@@ -34,7 +34,7 @@ public class BankTransactionServiceImpl implements BankTransactionService {
 		
 		if(fromaccountData.isEmpty())
 			throw new BankException(fromaccount+" acount not existed");
-		
+		 
 		List<Account> toaccountData = accountRepository2.findByAccountNo(toaccount);
 		if(toaccountData.isEmpty())
 			throw new BankException(toaccount+" acount not existed");
