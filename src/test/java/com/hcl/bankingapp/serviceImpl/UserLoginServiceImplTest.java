@@ -3,6 +3,7 @@ package com.hcl.bankingapp.serviceImpl;
 import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +70,7 @@ public class UserLoginServiceImplTest {
 		transaction.setTransactionId(1L);
 		transaction.setFromAccount(123L);
 		transaction.setToAccount(456L);
-		transaction.setDate(LocalDate.now()); 
+		transaction.setDate(LocalDateTime.now()); 
 
 		transactions.add(transaction);
 		Transactions transaction1 = new Transactions();
@@ -77,7 +78,7 @@ public class UserLoginServiceImplTest {
 		transaction1.setTransactionId(1L);
 		transaction1.setFromAccount(123L);
 		transaction1.setToAccount(456L);
-		transaction1.setDate(LocalDate.now());
+		transaction1.setDate(LocalDateTime.now());
 		transactions.add(transaction1);
 		
 		List<Account> accountList=new ArrayList<>();
@@ -125,7 +126,7 @@ public class UserLoginServiceImplTest {
 		transaction.setTransactionId(1L);
 		transaction.setFromAccount(123L);
 		transaction.setToAccount(456L);
-		transaction.setDate(LocalDate.now());
+		transaction.setDate(LocalDateTime.now());
 
 		transactions.add(transaction);
 		Transactions transaction1 = new Transactions();
@@ -133,7 +134,7 @@ public class UserLoginServiceImplTest {
 		transaction1.setTransactionId(1L);
 		transaction1.setFromAccount(123L);
 		transaction1.setToAccount(456L);
-		transaction1.setDate(LocalDate.now());
+		transaction1.setDate(LocalDateTime.now());
 		transactions.add(transaction1);
 
 		Mockito.when(userDetailsRepository.findByUserName("raja")).thenReturn(user);
@@ -169,7 +170,7 @@ public class UserLoginServiceImplTest {
 		transaction.setTransactionId(1L);
 		transaction.setFromAccount(123L);
 		transaction.setToAccount(456L);
-		transaction.setDate(LocalDate.now());
+		transaction.setDate(LocalDateTime.now());
 
 		transactions.add(transaction);
 		Transactions transaction1 = new Transactions();
@@ -177,7 +178,7 @@ public class UserLoginServiceImplTest {
 		transaction1.setTransactionId(1L);
 		transaction1.setFromAccount(123L);
 		transaction1.setToAccount(456L);
-		transaction1.setDate(LocalDate.now());
+		transaction1.setDate(LocalDateTime.now());
 		transactions.add(transaction1);
 		
 

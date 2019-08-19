@@ -20,6 +20,8 @@ public class UserDetails implements Serializable {
 	private String password;
 	private Long mobile;
 	private String email;
+	
+	
 
 	public Long getUserId() {
 		return userId;

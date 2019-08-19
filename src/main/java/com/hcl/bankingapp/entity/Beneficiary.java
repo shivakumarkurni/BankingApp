@@ -2,14 +2,10 @@ package com.hcl.bankingapp.entity;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Beneficiary {
@@ -23,15 +19,9 @@ public class Beneficiary {
 	private Long mobile;
 	private String email;
 
+	private Integer statusId;
 	private LocalDateTime createdDate;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "statusId")
-	BeneficiaryStatus beneficiaryStatus;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "userId")
-	UserDetails userDetails;
+	private Integer userId;
 
 	public Integer getBeneficiaryId() {
 		return beneficiaryId;
@@ -81,19 +71,13 @@ public class Beneficiary {
 		this.email = email;
 	}
 
-	public UserDetails getUserDetails() {
-		return userDetails;
+	public Integer getStatusId() {
+		return statusId;
 	}
 
-	public void setUserDetails(UserDetails userDetails) {
-		this.userDetails = userDetails;
+	public void setStatusId(Integer statusId) {
+		this.statusId = statusId;
 	}
-
-	/*
-	 * public Long getStatusId() { return statusId; }
-	 * 
-	 * public void setStatusId(Long statusId) { this.statusId = statusId; }
-	 */
 
 	public LocalDateTime getCreatedDate() {
 		return createdDate;
@@ -103,12 +87,12 @@ public class Beneficiary {
 		this.createdDate = createdDate;
 	}
 
-	public BeneficiaryStatus getBeneficiaryStatus() {
-		return beneficiaryStatus;
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setBeneficiaryStatus(BeneficiaryStatus beneficiaryStatus) {
-		this.beneficiaryStatus = beneficiaryStatus;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 }

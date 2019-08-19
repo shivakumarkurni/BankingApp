@@ -2,13 +2,10 @@ package com.hcl.bankingapp.entity;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Otp {
@@ -16,18 +13,7 @@ public class Otp {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer otpId;
-
-	@JoinColumn(name = "BeneficiaryId")
-	@ManyToOne(cascade = CascadeType.ALL)
-	Beneficiary beneficiary;
-
-	public Beneficiary getBeneficiary() {
-		return beneficiary;
-	}
-
-	public void setBeneficiary(Beneficiary beneficiary) {
-		this.beneficiary = beneficiary;
-	}
+	private Integer beneficiaryId;
 
 	private Integer otp;
 	private LocalDateTime otpCreatedDate;
@@ -54,6 +40,14 @@ public class Otp {
 
 	public void setOtpCreatedDate(LocalDateTime otpCreatedDate) {
 		this.otpCreatedDate = otpCreatedDate;
+	}
+
+	public Integer getBeneficiaryId() {
+		return beneficiaryId;
+	}
+
+	public void setBeneficiaryId(Integer beneficiaryId) {
+		this.beneficiaryId = beneficiaryId;
 	}
 
 }
