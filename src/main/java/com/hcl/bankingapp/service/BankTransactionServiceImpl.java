@@ -1,6 +1,6 @@
 package com.hcl.bankingapp.service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +50,7 @@ public class BankTransactionServiceImpl implements BankTransactionService {
 		
 		Transactions transactions=new Transactions();
 		transactions.setAmount(amount);
-		transactions.setDate(LocalDate.now());
+		transactions.setDate(LocalDateTime.now());
 		transactions.setFromAccount(fromaccount);
 		transactions.setToAccount(toaccount);
 		

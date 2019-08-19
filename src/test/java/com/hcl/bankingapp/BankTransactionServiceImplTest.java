@@ -1,6 +1,6 @@
 package com.hcl.bankingapp;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,7 +73,7 @@ public class BankTransactionServiceImplTest {
 
 		transactions = new Transactions();
 		transactions.setAmount(1000d); 
-		transactions.setDate(LocalDate.now());
+		transactions.setDate(LocalDateTime.now());
 		transactions.setFromAccount(account.getAccountId());
 		transactions.setToAccount(account2.getAccountId());
 		transactions.setTransactionId(3L);

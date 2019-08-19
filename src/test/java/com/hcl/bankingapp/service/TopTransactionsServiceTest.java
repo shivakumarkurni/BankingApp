@@ -3,6 +3,7 @@ package com.hcl.bankingapp.service;
 import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class TopTransactionsServiceTest {
 		
 		Transactions transactions=new Transactions();
 		transactions.setAmount(1000D);
-		transactions.setDate(LocalDate.now());
+		transactions.setDate(LocalDateTime.now());
 		transactions.setFromAccount(1234L);
 		transactions.setTransactionId(1L);
 		transactions.setToAccount(456L);
