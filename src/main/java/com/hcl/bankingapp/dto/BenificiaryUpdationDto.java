@@ -1,36 +1,23 @@
-package com.hcl.bankingapp.entity;
+package com.hcl.bankingapp.dto;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import com.hcl.bankingapp.entity.UserDetails;
 
-@Entity
-public class Beneficiary {
+public class BenificiaryUpdationDto implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	private static final long serialVersionUID = 1L;
+
 	private Integer beneficiaryId;
 	private String name;
 	private Long accountNumber;
 	private String ifscCode;
 	private Long mobile;
 	private String email;
-
+	private Long statusId;
 	private LocalDateTime createdDate;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "statusId")
-	BeneficiaryStatus beneficiaryStatus;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "userId")
 	UserDetails userDetails;
 
 	public Integer getBeneficiaryId() {
@@ -89,11 +76,13 @@ public class Beneficiary {
 		this.userDetails = userDetails;
 	}
 
-	/*
-	 * public Long getStatusId() { return statusId; }
-	 * 
-	 * public void setStatusId(Long statusId) { this.statusId = statusId; }
-	 */
+	public Long getStatusId() {
+		return statusId;
+	}
+
+	public void setStatusId(Long statusId) {
+		this.statusId = statusId;
+	}
 
 	public LocalDateTime getCreatedDate() {
 		return createdDate;
@@ -101,14 +90,6 @@ public class Beneficiary {
 
 	public void setCreatedDate(LocalDateTime createdDate) {
 		this.createdDate = createdDate;
-	}
-
-	public BeneficiaryStatus getBeneficiaryStatus() {
-		return beneficiaryStatus;
-	}
-
-	public void setBeneficiaryStatus(BeneficiaryStatus beneficiaryStatus) {
-		this.beneficiaryStatus = beneficiaryStatus;
 	}
 
 }
